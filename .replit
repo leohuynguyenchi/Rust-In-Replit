@@ -1,5 +1,7 @@
 run = "chmod +x tooling/fcc && fcc welcome"
 language = "nix"
+entrypoint = "main.sh"
+modules = ["bash:v1-20231215-e6d471c"]
 
 [env]
 npm_config_prefix = "/home/runner/$REPL_SLUG/.config/npm/node_global"
@@ -26,3 +28,7 @@ support = false
 
 [gitHubImport]
 requiredFiles = [".replit", "replit.nix"]
+
+[deployment]
+run = ["bash", "main.sh"]
+deploymentTarget = "cloudrun"
